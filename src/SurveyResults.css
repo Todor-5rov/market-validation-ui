@@ -1,0 +1,66 @@
+/* src/components/SurveyResults/SurveyResults.css */
+
+.survey-results {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease; /* Add transition for hover effect */
+}
+
+.survey-results:hover {
+  background-color: #f0f0f0; /* Light grey to indicate hover for the entire component */
+}
+
+.survey-results h2 {
+  text-align: center;
+}
+
+.question-summary {
+  margin: 20px 0;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.question-summary:hover {
+  background-color: #f0f0f0; /* Light grey to indicate hover */
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.responses {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.responses li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.responses li:last-child {
+  border-bottom: none;
+}
+
+.responses li strong {
+  color: #555;
+}
+
+.toggle-indicator {
+  font-size: 1.2em;
+  color: #777;
+  margin-left: 10px;
+}
