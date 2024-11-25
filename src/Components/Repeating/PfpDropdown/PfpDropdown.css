@@ -1,0 +1,141 @@
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.App {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+}
+
+.menu-trigger img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  background-color: #fff;
+  border-radius: 10px; /* Added direct value since no variable is defined */
+  padding: 10px 20px;
+  width: 200px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional to add depth */
+  cursor: auto;
+}
+
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  height: 20px;
+  width: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 0.1s ease; /* Replaced variable with direct value */
+}
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: 0.3s ease; /* Replaced variable with direct value */
+}
+
+h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 0px 0;
+  font-weight: 500;
+  color: #000; /* Changed to black */
+  line-height: 1.2rem;
+}
+
+h3 span {
+  font-size: 14px;
+  color: #777; /* A light grey color */
+  font-weight: 400;
+}
+
+.dropdown-menu ul li {
+  padding: 10px 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect for the dropdown items */
+.dropdown-menu ul li:hover {
+  background-color: #f0f0f0; /* Light grey background for hover effect */
+}
+
+.dropdown-menu ul li:hover a {
+  color: #28a745; /* Green color when hovering over links */
+  cursor: pointer;
+}
+
+.dropdown-menu ul li:hover img {
+  opacity: 1; /* Ensure the image becomes fully opaque on hover */
+  cursor: pointer;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  margin: auto;
+  cursor: pointer;
+}
+
+.dropdownItem img {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image fills the circle */
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.3s ease; /* Replaced variable with direct value */
+}
+
+.dropdownItem a {
+  max-width: 100px;
+  margin-left: 10px;
+  color: #000; /* Default color of the text */
+  transition: 0.1s ease; /* Replaced variable with direct value */
+}
+
+.menu-trigger img {
+  width: 40px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image fits nicely */
+  cursor: pointer; /* Changes cursor to pointer when hovering over */
+}
+
+.dropdown-menu img {
+  width: 20px; /* Adjust to match the icons' size */
+  height: 20px;
+  object-fit: contain; /* Ensures the image is not distorted */
+  border-radius: 50%;
+}
