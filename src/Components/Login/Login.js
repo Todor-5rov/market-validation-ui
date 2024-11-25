@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "./Login.css";
 import { useTranslation } from "react-i18next";
-
+import "react-i18next"
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const {t} = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleLogin = async () => {
     try {
@@ -20,6 +20,10 @@ function Login() {
     } catch (e) {
       setError(e.message);
     }
+  };
+
+  const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang);
   };
 
   const handleGoogleSignIn = async () => {
@@ -48,6 +52,25 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-card">
+      <div className="language-selector">
+          <span
+            className={`language-option ${
+              i18n.language === "en" ? "active" : ""
+            }`}
+            onClick={() => handleLanguageChange("en")}
+          >
+            EN
+          </span>
+          <span className="separator">|</span>
+          <span
+            className={`language-option ${
+              i18n.language === "bg" ? "active" : ""
+            }`}
+            onClick={() => handleLanguageChange("bg")}
+          >
+            BG
+          </span>
+        </div>
         <h2 className="login-title">{t("login.title")}</h2>
         <div className="login-input-group">
           <input

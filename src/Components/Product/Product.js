@@ -16,6 +16,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import "./Product.css";
 import { ThreeDots } from "react-loader-spinner";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { getDoc } from "firebase/firestore";
 
 // Define the base URL for API
 const BASE_URL = "http://localhost:5000"; // Change this to your production API URL later
@@ -33,15 +35,48 @@ const Product = () => {
   const [descriptions, setDescriptions] = useState([]); // List of descriptions
   const [selectedDescription, setSelectedDescription] = useState(null); // Currently selected description
   const [pageLoading, setPageLoading] = useState(true);
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if(!currentUser){
+        navigate("/login");
+      }
       setUser(currentUser);
       if (currentUser) fetchDescriptions(currentUser.uid);
+      if (currentUser) {
+        checkSubscriptionStatus(currentUser.uid); // Check subscription status when user is authenticated
+      }
     });
     return () => unsubscribe();
   }, []);
+
+  const checkSubscriptionStatus = async (userId) => {
+    try {
+      const userDocRef = doc(db, "subscriptions", userId); // Assuming you store user data under "users"
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+        const userData = userDocSnap.data();
+        console.log(userData)
+        const subscriptionStatus = userData.subscriptionStatus; // Assuming the field name is subscriptionStatus
+
+        if (subscriptionStatus !== "active") {
+          // Redirect to pricing page if subscription is not active
+          navigate("/pricing");
+        } else {
+          setPageLoading(false); // Subscription is active, continue loading the page
+        }
+      } else {
+        console.log("No such user document!");
+        navigate("/pricing"); // In case user document doesn't exist
+      }
+    } catch (error) {
+      console.error("Error fetching subscription status:", error);
+      navigate("/pricing"); // Redirect in case of error
+    }
+  };
 
   useEffect(() => {
     if (surveyQuestions.length > 0) {
@@ -74,13 +109,6 @@ const Product = () => {
       }));
       console.log(fetchedDescriptions[0].id);
       setDescriptions(fetchedDescriptions);
-      const options = [
-        { value: "new-campaign", label: "Start New Campaign" },
-        ...descriptions.map((desc) => ({
-          value: desc.id,
-          label: desc.id,
-        })),
-      ];
       setTimeout(() => {
         setPageLoading(false);
       }, 500);
@@ -277,7 +305,9 @@ const Product = () => {
                   }
                 }}
               >
-                <option value="new-campaign">{t("feedbackApp.startNewCampaign")}</option>
+                <option value="new-campaign">
+                  {t("feedbackApp.startNewCampaign")}
+                </option>
                 {descriptions.map((desc) => (
                   <option key={desc.id} value={desc.id}>
                     {desc.id}

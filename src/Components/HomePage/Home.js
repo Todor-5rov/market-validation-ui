@@ -10,7 +10,7 @@ import { ThreeDots } from "react-loader-spinner";
 
 const LandingPage = () => {
   const { t } = useTranslation(); // Initialize the translation hook
-
+  
   return (
     <div className="landing-page">
       <header className="header">

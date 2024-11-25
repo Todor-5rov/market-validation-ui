@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { auth, googleProvider } from "../../FireBase/firebaseConfig";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { t } from "i18next"; // Assuming you're using i18next for translation
+import { useTranslation } from "react-i18next";
 import "./Register.css";
 
 function Register() {
@@ -12,7 +12,7 @@ function Register() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-
+  const {t, i18n} = useTranslation()
   const handleRegister = async () => {
     if (password !== confirmPassword) {
       setError(t("register.errorPasswordMismatch"));
@@ -27,6 +27,10 @@ function Register() {
       setError(e.message);
     }
   };
+  
+  const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang);
+  };
 
   const handleGoogleSignIn = async () => {
     try {
@@ -40,6 +44,25 @@ function Register() {
   return (
     <div className="register-container">
       <div className="register-card">
+      <div className="language-selector">
+          <span
+            className={`language-option ${
+              i18n.language === "en" ? "active" : ""
+            }`}
+            onClick={() => handleLanguageChange("en")}
+          >
+            EN
+          </span>
+          <span className="separator">|</span>
+          <span
+            className={`language-option ${
+              i18n.language === "bg" ? "active" : ""
+            }`}
+            onClick={() => handleLanguageChange("bg")}
+          >
+            BG
+          </span>
+        </div>
         <h2 className="register-title">{t("register.title")}</h2>
         <div className="input-group">
           <input
