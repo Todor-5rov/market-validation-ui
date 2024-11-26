@@ -12,7 +12,7 @@ function Register() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const {t, i18n} = useTranslation()
+  const {t, i18n} = useTranslation();
   const handleRegister = async () => {
     if (password !== confirmPassword) {
       setError(t("register.errorPasswordMismatch"));

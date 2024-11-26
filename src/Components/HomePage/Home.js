@@ -6,11 +6,10 @@ import dataImage from './Images/data.png';
 import insightsImage from './Images/insights.png';
 import Footer from "../Repeating/Footer/Footer";
 import { useTranslation } from "react-i18next";
-import { ThreeDots } from "react-loader-spinner";
 
 const LandingPage = () => {
   const { t } = useTranslation(); // Initialize the translation hook
-  
+
   return (
     <div className="landing-page">
       <header className="header">
