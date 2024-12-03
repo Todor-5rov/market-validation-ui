@@ -20,7 +20,7 @@ const Pricing = () => {
     // Clean up the listener when the component unmounts
     return () => unsubscribe();
   }, []);
-
+  console.log(userid);
   // Render the correct pricing table based on the current language
   const renderPricingTable = () => {
     const locale = i18n.language; // Get the current locale from i18next
@@ -30,6 +30,7 @@ const Pricing = () => {
           <stripe-pricing-table
             pricing-table-id="prctbl_1QO1A4RrDgS7LfakvnB1FiKU"
             publishable-key="pk_test_51PBGdMRrDgS7LfakxKcTYPLsavUCGvmEMntAdPjJ4EPwrApAQdY5CDdOoB2xPQFLBRCozGPRoFHfx6sBObGKuCkK00TgCNUQvu"
+            client-reference-id={userid}
           ></stripe-pricing-table>
         );
       case "en": // English locale

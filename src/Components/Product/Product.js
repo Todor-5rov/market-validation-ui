@@ -17,10 +17,10 @@ import "./Product.css";
 import { ThreeDots } from "react-loader-spinner";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { getDoc } from "firebase/firestore";
+import { getDoc, onSnapshot } from "firebase/firestore";
 
 // Define the base URL for API
-const BASE_URL = "http://localhost:5000"; // Change this to your production API URL later
+const BASE_URL = "https://real-shepherd-excited.ngrok-free.app"; // Change this to your production API URL later
 
 const Product = () => {
   const [businessDescription, setBusinessDescription] = useState("");
@@ -39,42 +39,57 @@ const Product = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
+    let subscriptionUnsubscribe;
+  
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if(!currentUser){
-        navigate("/login");
-      }
-      setUser(currentUser);
-      if (currentUser) fetchDescriptions(currentUser.uid);
-      if (currentUser) {
-        checkSubscriptionStatus(currentUser.uid); // Check subscription status when user is authenticated
+      if (!currentUser) {
+        navigate("/login"); // Redirect if no user is logged in
+      } else {
+        setUser(currentUser); // Set the logged-in user
+  
+        // Fetch descriptions
+        fetchDescriptions(currentUser.uid);
+  
+        // Start subscription monitoring
+        subscriptionUnsubscribe = checkSubscriptionStatus(
+          currentUser.uid,
+          navigate
+        );
       }
     });
-    return () => unsubscribe();
+  
+    // Cleanup both listeners on unmount
+    return () => {
+      unsubscribe(); // Clean up the auth listener
+      if (subscriptionUnsubscribe) subscriptionUnsubscribe(); // Clean up subscription listener
+    };
   }, []);
 
-  const checkSubscriptionStatus = async (userId) => {
+  const checkSubscriptionStatus = (userId, navigate) => {
     try {
-      const userDocRef = doc(db, "subscriptions", userId); // Assuming you store user data under "users"
-      const userDocSnap = await getDoc(userDocRef);
-
-      if (userDocSnap.exists()) {
-        const userData = userDocSnap.data();
-        console.log(userData)
-        const subscriptionStatus = userData.subscriptionStatus; // Assuming the field name is subscriptionStatus
-
-        if (subscriptionStatus !== "active") {
-          // Redirect to pricing page if subscription is not active
-          navigate("/pricing");
+      const userDocRef = doc(db, "subscriptions", userId);
+      console.log("in");
+      // Set up a real-time Firestore listener
+      const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          const subscriptionStatus = userData.subscriptionStatus;
+  
+          if (subscriptionStatus !== "trialing") {
+            navigate("/pricing"); // Redirect if subscription is not active
+          } else {
+            navigate("/product");
+          }
         } else {
-          setPageLoading(false); // Subscription is active, continue loading the page
+          console.log("No subscription document found!");
+          navigate("/pricing"); // Redirect if no subscription document exists
         }
-      } else {
-        console.log("No such user document!");
-        navigate("/pricing"); // In case user document doesn't exist
-      }
+      });
+  
+      return unsubscribe; // Return unsubscribe to clean up the listener
     } catch (error) {
-      console.error("Error fetching subscription status:", error);
-      navigate("/pricing"); // Redirect in case of error
+      console.error("Error setting up subscription listener:", error);
+      navigate("/pricing"); // Redirect on error
     }
   };
 
@@ -107,7 +122,6 @@ const Product = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      console.log(fetchedDescriptions[0].id);
       setDescriptions(fetchedDescriptions);
       setTimeout(() => {
         setPageLoading(false);
