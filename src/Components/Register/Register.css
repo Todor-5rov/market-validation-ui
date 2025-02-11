@@ -1,0 +1,193 @@
+/* General body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Container for the register card */
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #f4f4f9;
+  }
+  
+  /* Main card for the register form */
+  .register-card {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  /* Title for the register card */
+  .register-title {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  
+  /* Group for each input field */
+  .input-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the input fields */
+  .register-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  /* Focus effect for inputs */
+  .register-input:focus {
+    outline: none;
+    border-color: #00aaff;
+    background-color: #ffffff;
+  }
+  
+  /* Button styling */
+  .register-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  /* Hover effect for the button */
+  .register-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Style for the login link */
+  .login-link {
+    color: #28a745;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline;
+    margin-top: 10px;
+  }
+  
+  /* Hover effect for the login link */
+  .login-link:hover {
+    color: #218838;
+    text-decoration: underline;
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: #ff4d4d;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* Success message styling */
+  .success-message {
+    color: #4caf50;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* Google Sign-In button */
+  .google-signin-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4285f4;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  /* Hover effect for Google button */
+  .google-signin-button:hover {
+    background-color: #357ae8;
+  }
+  
+  /* Horizontal rule with text styling */
+  .hr-text {
+    border: 0;
+    line-height: 1em;
+    position: relative;
+    text-align: center;
+    height: 1.5em;
+    font-size: 14px;
+    margin: 15px 7px;
+  }
+  
+  .hr-text::before {
+    content: "";
+    background: linear-gradient(to right, white, green, white);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+  }
+  
+  .hr-text::after {
+    content: attr(data-content);
+    position: relative;
+    padding: 0 7px;
+    line-height: 1.5em;
+    color: #000000;
+    background-color: #ffffff;
+  }
+  .language-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-right: 0px !important;
+  }
+  
+  .language-option {
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #555;
+    transition: color 0.3s, background-color 0.3s;
+  }
+  
+  .language-option.active {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .separator {
+    margin: 0 5px;
+    color: #ccc;
+  }
+
+
+  @media only screen and (max-width: 1023px) {
+    /* Styles for tablets and smaller screens */
+    
+  }
+  

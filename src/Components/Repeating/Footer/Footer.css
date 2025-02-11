@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.footer {
+  width: 100%;
+  align-self: flex-end;
+  background-color: #333;
+  color: #ccc; /* Changed to lighter gray */
+  text-align: center;
+  padding: 10px 0;
+  font-family: "Inter", sans-serif;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  transition: margin-left 0.3s ease; /* Smooth transition */
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+}
+
+.footer.shifted {
+  margin-left: 250px;
+  width: calc(100% - 250px); /* Prevent it from overflowing */
+}
+
+.footer-text {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}

@@ -1,0 +1,165 @@
+{
+  "about": {
+    "title": "About Us",
+    "who_we_are": {
+      "title": "Who We Are",
+      "content": "We are ProVal, a passionate team dedicated to providing innovative solutions that make product validation for innovative products easier. Our goal is to make a positive impact in the lives of our customers by simplifying a process that is currently challenging."
+    },
+    "our_story": {
+      "title": "Our Story",
+      "content": "Founded in 2024, ProVal began with a simple idea: to streamline and simplify the process of product validation for innovative solutions, making it accessible and efficient for creators and businesses alike. Though we are just starting, our vision is to revolutionize how product validation is approached across various industries."
+    },
+    "mission_and_vision": {
+      "title": "Mission & Vision",
+      "content": "Our mission is to make product validation a seamless and straightforward process, empowering innovators to bring their ideas to market with confidence and speed. We envision a world where every great idea has the opportunity to succeed, no matter how big or small. By simplifying product validation, we hope to foster a culture of innovation where new products can be tested and improved efficiently, leading to more successful launches and positive changes across industries."
+    },
+    "core_values": {
+      "title": "Core Values",
+      "values": {
+        "integrity": {
+          "title": "Integrity",
+          "content": "We believe in honest and transparent practices."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "content": "We strive to stay ahead of the curve and embrace change."
+        },
+        "community": {
+          "title": "Community",
+          "content": "We are committed to fostering a supportive environment."
+        }
+      }
+    },
+    "meet_the_team": {
+      "title": "Meet the Team",
+      "team_members": {
+        "jane_doe": {
+          "name": "Jane Doe",
+          "role": "Co-founder & CEO",
+          "fun_fact": "Fun Fact: Loves hiking and coffee!"
+        },
+        "john_smith": {
+          "name": "John Smith",
+          "role": "Co-founder & CTO",
+          "fun_fact": "Fun Fact: Avid gamer and tech enthusiast!"
+        }
+      }
+    },
+    "why_choose_us": {
+      "title": "Why Choose Us?",
+      "content": "At ProVal, we differentiate ourselves by offering an easy-to-use, efficient solution to product validation that reduces time and effort for innovators. Our commitment to streamlined processes, customer support, and innovation ensures that you receive the best experience possible."
+    },
+    "get_in_touch": {
+      "title": "Get in Touch",
+      "content": "If you'd like to learn more about us, feel free to <contactLink>contact us</contactLink>."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "form": {
+      "name": {
+        "label": "Name:",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email:",
+        "placeholder": "Enter your email"
+      },
+      "message": {
+        "label": "Message:",
+        "placeholder": "Enter your message"
+      },
+      "submit_button": "Send Message"
+    },
+    "messages": {
+      "success": "Thank you for your message!",
+      "error": "Failed to send your message. Please try again."
+    },
+    "buttons": {
+      "home": "Home"
+    }
+  },
+  "home": {
+    "hero": {
+      "heading": "Validate Your Product Ideas with Confidence",
+      "subtitle": "Effortlessly connect with target customers and gather real-world feedback using ProVal."
+    },
+    "features": {
+      "section_heading": "Key Features",
+      "automated_email_campaigns": {
+        "title": "Automated Email Campaigns",
+        "description": "Quickly set up and send personalized outreach emails to your target audience, saving you time and effort."
+      },
+      "seamless_data_collection": {
+        "title": "Seamless Data Collection",
+        "description": "Collect feedback from potential customers and analyze their responses to refine your product ideas."
+      },
+      "actionable_insights": {
+        "title": "Actionable Insights",
+        "description": "Gain insights into market demand, customer preferences, and product viability with easy-to-read analytics."
+      }
+    }
+  },
+  "login": {
+    "title": "Login",
+    "email_placeholder": "Email",
+    "password_placeholder": "Password",
+    "login_button": "Login",
+    "or": "OR",
+    "google_signin_button": "Sign in with Google",
+    "forgot_password": "Forgot Password?",
+    "forgot_password_error": "Please enter your email to reset the password.",
+    "password_reset_success": "Password reset email sent! Check your inbox.",
+    "no_account": "Don't have an account?",
+    "register_link": "Register",
+    "error_message": "An error occurred. Please try again."
+  },
+  "feedbackApp": {
+    "title": "Run Campaign",
+    "savedDescriptions": "Saved Descriptions:",
+    "enterDescription": "Enter business description",
+    "generateSurvey": "Generate Survey",
+    "formCreated": "Form Created",
+    "viewForm": "View Form",
+    "viewResponsesSpreadsheet": "View Responses Spreadsheet",
+    "analyzeResponses": "Analyze Responses",
+    "feedbackAnalysis": "Feedback Analysis:",
+    "analyzingFeedback": "Analyzing feedback... Please wait.",
+    "errorFetchingDescriptions": "Error fetching descriptions:",
+    "errorGeneratingSurvey": "Error generating survey. Please try again.",
+    "errorCreatingForm": "Error creating form.",
+    "errorSendingEmails": "Error sending emails.",
+    "loading": "Loading...",
+    "startNewCampaign":"New campaign"
+  },
+  "register": {
+    "title": "Register",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordPlaceholder": "Confirm Password",
+    "registerButton": "Register",
+    "or": "OR",
+    "googleSignInButton": "Sign up with Google",
+    "successMessage": "Registration successful! Redirecting to login...",
+    "errorPasswordMismatch": "Passwords do not match.",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Login"
+  },
+  "footer": {
+    "text": "ProVal. Empowering Businesses to Validate and Grow with Confidence."
+  },
+  "navbar": {
+    "home": "Home",
+    "product": "Product",
+    "about": "About",
+    "contact": "Contact",
+    "pricing": "Pricing",
+    "signIn": "Sign In"
+  },
+  "profile": {
+    "myProfile": "My Profile",
+    "settings": "Settings",
+    "help": "Help",
+    "logout": "Logout"
+  }
+}

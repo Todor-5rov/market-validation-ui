@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+.wrapper{
+  height: 100vh;
+  width: 100vw;
+}
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.header {
+  background-color: #007bff; /* Primary color */
+  color: #222; /* Changed to darker color for better readability */
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1,
+.hero-heading,
+.section-heading {
+  margin: 0;
+  color: #000; /* Changed to dark color for better contrast */
+  font-family: "Inter", sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #333; /* Changed to dark color */
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+}
+
+.cta-button {
+  background-color: #28a745; /* Success color */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+}
+
+.hero {
+  background: url("./Images/hero-background.png")
+    no-repeat center center/cover;
+  color: #000; /* Changed to a dark color */
+  text-align: center;
+  padding: 100px 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.hero-heading {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-family: "Inter", sans-serif;
+}
+
+.hero-subtitle {
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.main-content {
+  background-color: #f5f5f5; /* Light background for readability */
+  font-family: "Inter", sans-serif;
+}
+
+.features,
+.pricing,
+.contact {
+  padding: 40px 20px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.section-heading {
+  margin-top: 0;
+  color: #222; /* Changed to dark color for better contrast */
+  font-family: "Inter", sans-serif;
+}
+
+.feature-card {
+  border: 1.5px solid #28a745; /* Green border for the card */
+  border-radius: 20px 80px; /* Rounded corners */
+  padding: 20px; /* Space inside the card */
+  margin: 20px auto; /* Center the card and add margin */
+  max-width: 800px; /* Limit card width for better layout */
+  background-color: rgba(250, 248, 242, 0.7);
+  font-family: "Inter", sans-serif;
+}
+
+.feature-card-middle {
+  border: 1.5px solid #28a745; /* Green border for the card */
+  border-radius: 80px 20px; /* Rounded corners */
+  padding: 20px; /* Space inside the card */
+  margin: 20px auto; /* Center the card and add margin */
+  max-width: 800px; /* Limit card width for better layout */
+  background-color: rgba(250, 248, 242, 0.7);
+  font-family: "Inter", sans-serif;
+}
+
+.feature {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically in the center */
+  margin: 20px 0;
+  flex-direction: row; /* Default: image on the left */
+  font-family: "Inter", sans-serif;
+}
+
+.feature.reversed {
+  flex-direction: row-reverse; /* Reverse direction for the middle feature */
+  font-family: "Inter", sans-serif;
+}
+
+.email-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  border-bottom-left-radius: 60px;
+  margin: 0 20px; /* Add space around the image */
+  border: 1.5px solid #333;
+}
+.email-image-middle {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  border-bottom-right-radius: 60px;
+  margin: 0 20px; /* Add space around the image */
+  border: 1.5px solid #333;
+}
+
+.feature-title {
+  color: #222;
+  font-family: "Inter", sans-serif;
+}
+
+.feature-description {
+  color: #555;
+  font-family: "Inter", sans-serif;
+}
+
+.pricing-list {
+  list-style-type: none;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.pricing-item {
+  margin: 10px 0;
+  color: #333; /* Changed to dark color for readability */
+  font-family: "Inter", sans-serif;
+}
+::-webkit-scrollbar{
+  width: 11px;
+  background-color: #e3ffea;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgba(40, 167, 69, 0.5);
+  border-radius: 50px;
+}
+
+@media only screen and (max-width: 1023px) {
+  /* Styles for tablets and smaller screens */
+}

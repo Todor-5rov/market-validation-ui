@@ -1,0 +1,194 @@
+/* Product.css */
+
+.feedback-app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.feedback-form-container {
+  max-width: 800px;
+  width: 800px;
+  text-align: center;
+  padding: 20px;
+  margin-top: 90px;
+  margin-bottom: 50px;
+  border: 1px solid #28a745;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+input,
+textarea {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: justify;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+textarea {
+  height: 100px;
+  border: 1px solid #28a745;
+}
+
+.generate-button {
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #28a745;
+}
+
+.survey-questions {
+  margin-top: 20px;
+}
+
+.form-links {
+  margin-top: 20px;
+}
+
+.form-links a {
+  color: #28a745;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+.emails-sent {
+  margin-top: 20px;
+}
+
+.analysis-container {
+  margin-top: 20px;
+}
+
+.refresh-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.refresh-button:hover {
+  background-color: #218838;
+}
+
+.analyze-feedback-button {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  margin: 20px auto;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.analyze-feedback-button:hover {
+  background-color: #45a049;
+}
+.threeDots {
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+option {
+  height: 30px;
+  text-align: center;
+  align-content: center;
+}
+select {
+  width: 150px;
+}
+select option:checked {
+  background-color: #e3ffea;
+  color: black;
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 10px 100px #e3ffea inset;
+}
+select::-webkit-scrollbar {
+  width: 7px;
+  background-color: #e3ffea;
+}
+select::-webkit-scrollbar-thumb {
+  background-color: #28a745;
+  border-radius: 50px;
+}
+.product-container {
+  display: flex;
+  flex-direction: column;
+}
+.analysis {
+  text-align: justify;
+  margin: 40px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  position: fixed; /* Fix the position to the viewport */
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background */
+  z-index: -1;
+}
+
+
+@media only screen and (max-width: 1023px) {
+  /* Styles for tablets and smaller screens */
+}

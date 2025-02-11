@@ -1,0 +1,205 @@
+/* Body styles for centering the content */
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+/* Container for the login card */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+/* Main card for the login form */
+.login-card {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Title for the login card */
+.login-title {
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* Group for each input field */
+.login-input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Style for the input fields */
+.login-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Focus effect for inputs */
+.login-input:focus {
+  outline: none;
+  border-color: #00aaff;
+  background-color: #ffffff;
+}
+
+/* Button styling */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Hover effect for the button */
+.login-button:hover {
+  background-color: #218838;
+}
+
+/* Style for the forgot password link */
+.login-forgot-password {
+  color: #28a745;
+  cursor: pointer;
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Hover effect for the forgot password link */
+.login-forgot-password:hover {
+  color: #218838;
+  text-decoration: underline;
+}
+
+/* Style for the register link */
+.login-register-link {
+  color: #28a745;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Hover effect for the register link */
+.login-register-link:hover {
+  color: #218838;
+  text-decoration: underline;
+}
+
+/* Error message styling */
+.login-error-message {
+  color: #ff4d4d;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Success message styling */
+.login-success-message {
+  color: #4caf50;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Google Sign-in button */
+.login-google-signin-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4285f4;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Hover effect for Google button */
+.login-google-signin-button:hover {
+  background-color: #357ae8;
+}
+
+/* Horizontal rule with text */
+.login-hr-text {
+  border: 0;
+  line-height: 1em;
+  position: relative;
+  text-align: center;
+  height: 1.5em;
+  font-size: 14px;
+  margin: 15px 7px;
+}
+
+.login-hr-text::before {
+  content: "";
+  background: linear-gradient(to right, white, green, white);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+}
+
+.login-hr-text::after {
+  content: attr(data-content);
+  position: relative;
+  padding: 0 7px;
+  line-height: 1.5em;
+  color: #000000;
+  background-color: #ffffff;
+}
+.language-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin-right: 0px !important;
+}
+
+.language-option {
+  cursor: pointer;
+  padding: 5px 10px;
+  color: #555;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.language-option.active {
+  font-weight: bold;
+  color: #333;
+}
+
+.separator {
+  margin: 0 5px;
+  color: #ccc;
+}
+
+
+
+@media only screen and (max-width: 1023px) {
+  /* Styles for tablets and smaller screens */
+}
