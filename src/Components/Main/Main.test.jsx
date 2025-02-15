@@ -1,4 +1,4 @@
-import { getAllByText, render } from "@testing-library/react";
+import { getAllByText, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, it, expect } from "vitest";
 import Main from "./Main";
@@ -32,7 +32,7 @@ describe("Main Component Routing", () => {
         <Main />
       </MemoryRouter>
     );
-    expect(getByText(/feedbackapp/i)).toBeInTheDocument();
+    expect(screen.getByTestId("app-container")).toBeInTheDocument();
   });
 
   it("renders About component on '/about' route", () => {

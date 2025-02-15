@@ -1,17 +1,25 @@
-import React from "react";
-import { t } from "i18next"; // Assuming you're using i18next for translation
-import "./Footer.css";
-import { useLocation } from "react-router-dom";
+import { t } from "i18next"
+import { useLocation } from "react-router-dom"
+import "./Footer.css"
 
 const Footer = () => {
-  const location = useLocation();
-  const isProductPage = location.pathname === "/product";
+  const location = useLocation()
+  const isProductPage = location.pathname === "/product"
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className={`footer ${isProductPage ? "shifted" : ""}`}>
-      <p className="footer-text">&copy; 2024 {t("footer.text")}</p>
+      <p className="footer-text">
+        <span className="full-text">
+          &copy; {currentYear} {t("footer.text")}
+        </span>
+        <span className="short-text">
+          &copy; 2024 ProVal
+        </span>
+      </p>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
+
