@@ -1,103 +1,141 @@
+.about-page {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .about-container {
-  flex: 1; /* Allows this to take the remaining space */
-  padding: 2.71%; /* Converted from 20px (20 / 738 * 100%) */
-  background-color: #f9f9f9; /* Example background color */
-  text-align: center; /* Center-align all text */
-  max-width: 52.65%; /* Converted from 800px (800 / 1519 * 100%) */
-  margin: 0 auto; /* Center the container on the page */
+  flex: 1;
+  padding: 1rem 2rem 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .about-container main {
-  margin-top: 8.13%; /* Converted from 60px (60 / 738 * 100%) */
-  padding-bottom: 8.13%; /* Converted from 60px */
+  margin-top: 2rem;
 }
 
 h1,
 h2 {
-  color: #333; /* Example color, change as needed */
-  margin-bottom: 2.71%; /* Converted from 20px (20 / 738 * 100%) */
+  color: #28a745;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-p {
-  font-size: 1em; /* Keep font size relative for responsiveness */
-  line-height: 1.6; /* Improve readability */
-  text-align: justify;
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-/* For the value cards and team member cards */
+h2 {
+  font-size: 2rem;
+}
+
+.about-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
 .values-cards,
 .team-cards {
   display: flex;
-  justify-content: center; /* Center cards */
-  flex-wrap: wrap; /* Allows wrapping for smaller screens */
-  margin: 2.71% 0; /* Converted from 20px (20 / 738 * 100%) */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .value-card,
 .team-member-card {
-  background-color: #28a745; /* Main card color */
-  color: white; /* Text color */
-  border-radius: 1.08% 6.78%; /* Converted from 8px 50px */
-  padding: 2.71%; /* Converted from 20px (20 / 738 * 100%) */
-  margin: 1.36%; /* Converted from 10px (10 / 738 * 100%) */
-  flex: 1 1 30%; /* Flexible basis, adjusts according to screen size */
-  box-shadow: 0 0.27% 0.68% rgba(0, 0, 0, 0.2); /* Converted from 0 2px 5px */
-  transition: transform 0.2s; /* Smooth transition for hover effect */
-  border: #333 0.14% solid; /* Converted from 2px (2 / 1519 * 100%) */
+  flex: 0 1 calc(33.333% - 2rem);
+  min-width: 250px;
+  max-width: 350px;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .value-card:hover,
 .team-member-card:hover {
-  transform: translateY(-0.68%); /* Converted from -5px (5 / 738 * 100%) */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.team-member-card-second {
-  background-color: #28a745; /* Main card color */
-  color: white; /* Text color */
-  border-radius: 6.78% 1.08%; /* Converted from 50px 8px */
-  padding: 2.71%; /* Converted from 20px */
-  margin: 1.36%; /* Converted from 10px */
-  flex: 1 1 30%; /* Flexible basis, adjusts according to screen size */
-  box-shadow: 0 0.27% 0.68% rgba(0, 0, 0, 0.2); /* Converted from 0 2px 5px */
-  transition: transform 0.2s; /* Smooth transition for hover effect */
-  border: #333 0.14% solid; /* Converted from 2px */
+.value-card h3,
+.team-member-card h3 {
+  color: #28a745;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
-.value-card-middle:hover,
-.team-member-card-second:hover {
-  transform: translateY(-0.68%); /* Converted from -5px */
-}
-
-/* Media query for responsive design */
-@media (max-width: 768px) {
-  .value-card,
-  .team-member-card {
-    flex: 1 1 100%; /* Full width on smaller screens */
-  }
-
-  .about-container {
-    padding: 1.36%; /* Converted from 10px */
-  }
+.value-card-content {
+  font-size: 1rem;
+  color: #333;
 }
 
 .about-contact-link {
-  color: #28a745; /* Main color */
-  text-decoration: none; /* Remove underline */
-
-  /* Smooth transition for hover and active effects */
+  color: #28a745;
+  text-decoration: none;
+  font-weight: bold;
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .about-contact-link:hover {
-  color: #1e7e34; /* Slightly darker green for hover */
-  text-decoration: underline; /* Underline on hover */
+  color: #1e7e34;
+  text-decoration: underline;
 }
 
 .about-contact-link:active {
-  color: #155d27; /* Even darker green for active state */
+  color: #155d27;
 }
 
-
-@media only screen and (max-width: 1023px) {
-  /* Styles for tablets and smaller screens */
+.section-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #28a745, transparent);
+  margin: 3rem 0;
 }
+
+/* Footer styles */
+.footer-container {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem 0;
+  margin-top: auto; /* Push footer to bottom */
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .about-paragraph {
+    font-size: 1rem;
+  }
+
+  .value-card,
+  .team-member-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+

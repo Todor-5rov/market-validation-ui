@@ -1,19 +1,30 @@
-/* Product.css */
+.product-container {
+  display: flex;
+  min-height: calc(100vh - 74.55px);
+}
 
 .feedback-app-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   overflow-x: hidden;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.feedback-app-container.sidebar-collapsed {
+  margin-left: 0;
+  width: 100%;
 }
 
 .feedback-form-container {
   max-width: 800px;
-  width: 800px;
+  width: 100%;
   text-align: center;
   padding: 20px;
-  margin-top: 90px;
+  margin-top: 20px;
   margin-bottom: 50px;
   border: 1px solid #28a745;
   border-radius: 10px;
@@ -35,7 +46,7 @@ h3 {
 
 input,
 textarea {
-  width: 80%;
+  width: 100%;
   padding: 10px;
   margin: 10px 0;
   font-size: 1em;
@@ -138,38 +149,41 @@ textarea {
 .analyze-feedback-button:hover {
   background-color: #45a049;
 }
+
 .threeDots {
   align-self: center;
   align-items: center;
   justify-content: center;
   align-content: center;
 }
+
 option {
   height: 30px;
   text-align: center;
   align-content: center;
 }
+
 select {
   width: 150px;
 }
+
 select option:checked {
   background-color: #e3ffea;
   color: black;
   -webkit-text-fill-color: black;
   box-shadow: 0 0 10px 100px #e3ffea inset;
 }
+
 select::-webkit-scrollbar {
   width: 7px;
   background-color: #e3ffea;
 }
+
 select::-webkit-scrollbar-thumb {
   background-color: #28a745;
   border-radius: 50px;
 }
-.product-container {
-  display: flex;
-  flex-direction: column;
-}
+
 .analysis {
   text-align: justify;
   margin: 40px;
@@ -177,18 +191,46 @@ select::-webkit-scrollbar-thumb {
 
 .loading-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  position: fixed; /* Fix the position to the viewport */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.8);
   z-index: -1;
 }
 
+@media (max-width: 1200px) {
+  .feedback-app-container {
+    margin-left: 0;
+  }
+}
 
-@media only screen and (max-width: 1023px) {
-  /* Styles for tablets and smaller screens */
+@media (max-width: 900px) {
+  .feedback-form-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .feedback-form-container {
+    padding: 10px 30px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+  }
+  
+  .analysis{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .generate-button,
+  .analyze-button {
+    width: 100%;
+  }
 }

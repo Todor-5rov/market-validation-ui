@@ -8,18 +8,8 @@ import {
   handleCreateForm,
   handleSendEmails,
   handleAnalyzeFeedback,
-  translateText,
 } from "./productFunctions";
-import { db, auth } from "../../FireBase/firebaseConfig";
-import {
-  collection,
-  doc,
-  setDoc,
-  getDocs,
-  orderBy,
-  query,
-  updateDoc,
-} from "firebase/firestore";
+import { auth } from "../../FireBase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import "./Product.css";
 import { ThreeDots } from "react-loader-spinner";
@@ -27,8 +17,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../Repeating/Sidenav/Sidenav";
 
-// Define the base URL for API
-const BASE_URL = "https://real-shepherd-excited.ngrok-free.app"; // Change this to your production API URL later
+const BASE_URL = "https://real-shepherd-excited.ngrok-free.app";
 
 const Product = () => {
   const [businessDescription, setBusinessDescription] = useState("");
@@ -36,13 +25,14 @@ const Product = () => {
   const [formUrls, setFormUrls] = useState({ formUrl: "", spreadsheetUrl: "" });
   const [googlePlacesQuery, setGooglePlacesQuery] = useState("");
   const [analysis, setAnalysis] = useState("");
-  const [emailStatus, setEmailStatus] = useState(""); // For email status
-  const [loading, setLoading] = useState(false); // General loading for survey generation
-  const [isAnalyzing, setIsAnalyzing] = useState(false); // Loading state for analysis refresh
-  const [user, setUser] = useState(null); // To store the current user
-  const [descriptions, setDescriptions] = useState([]); // List of descriptions
-  const [selectedDescription, setSelectedDescription] = useState(null); // Currently selected description
+  const [emailStatus, setEmailStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [user, setUser] = useState(null);
+  const [descriptions, setDescriptions] = useState([]);
+  const [selectedDescription, setSelectedDescription] = useState(null);
   const [pageLoading, setPageLoading] = useState(true);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
@@ -51,19 +41,15 @@ const Product = () => {
 
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
-        navigate("/login"); // Redirect if no user is logged in
+        navigate("/login");
       } else {
-        setUser(currentUser); // Set the logged-in user
-
-        // Fetch descriptions
+        setUser(currentUser);
         fetchDescriptions(
           currentUser.uid,
           setDescriptions,
           setPageLoading,
           setSelectedDescription
         );
-
-        // Start subscription monitoring
         subscriptionUnsubscribe = checkSubscriptionStatus(
           currentUser.uid,
           navigate
@@ -72,10 +58,10 @@ const Product = () => {
     });
 
     return () => {
-      unsubscribe(); // Clean up the auth listener
-      if (subscriptionUnsubscribe) subscriptionUnsubscribe(); // Clean up subscription listener
+      unsubscribe();
+      if (subscriptionUnsubscribe) subscriptionUnsubscribe();
     };
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     if (surveyQuestions.length > 0) {
@@ -87,7 +73,7 @@ const Product = () => {
         businessDescription
       );
     }
-  }, [surveyQuestions]);
+  }, [surveyQuestions, businessDescription]);
 
   useEffect(() => {
     if (selectedDescription) {
@@ -103,40 +89,34 @@ const Product = () => {
   }, [selectedDescription, i18n.language]);
 
   return (
-    <div
-      className="feedback-app-container"
-      data-testid="app-container"
-      style={{ marginLeft: pageLoading ? 0 : 250 }}
-    >
-      {pageLoading ? (
-        <div className="loading-container">
-          <ThreeDots data-testid="three-dots-loading"/>
-        </div>
-      ) : (
-        <div className="row">
-          <div>
-            <Sidebar
-              descriptions={descriptions}
-              selectedDescription={selectedDescription}
-              setSelectedDescription={setSelectedDescription}
-              handleStartNewCampaign={() => {
-                setBusinessDescription("");
-                setSurveyQuestions([]);
-                setFormUrls({ formUrl: "", spreadsheetUrl: "" });
-                setGooglePlacesQuery("");
-                setAnalysis("");
-                setSelectedDescription(null);
-              }}
-              setDescriptions={setDescriptions}
-            />
+    <div className="product-container">
+      <Sidebar
+        descriptions={descriptions}
+        selectedDescription={selectedDescription}
+        setSelectedDescription={setSelectedDescription}
+        handleStartNewCampaign={() => {
+          setBusinessDescription("");
+          setSurveyQuestions([]);
+          setFormUrls({ formUrl: "", spreadsheetUrl: "" });
+          setGooglePlacesQuery("");
+          setAnalysis("");
+          setSelectedDescription(null);
+        }}
+        setDescriptions={setDescriptions}
+        isCollapsed={isSidebarCollapsed}
+        setIsCollapsed={setIsSidebarCollapsed}
+      />
+      <div
+        className={`feedback-app-container ${isSidebarCollapsed ? "sidebar-collapsed" : ""}`}
+        data-testid="app-container"
+      >
+        {pageLoading ? (
+          <div className="loading-container">
+            <ThreeDots data-testid="three-dots-loading"/>
           </div>
+        ) : (
           <div className="feedback-form-container">
             <h1>{t("feedbackApp.title")}</h1>
-            <div className="dropdown-container">
-              <label htmlFor="description-dropdown">
-                {t("feedbackApp.savedDescriptions")}
-              </label>
-            </div>
             <div className="input-container">
               <textarea
                 placeholder={t("feedbackApp.enterDescription")}
@@ -152,7 +132,7 @@ const Product = () => {
                     setGooglePlacesQuery,
                     setLoading
                   );
-                }} // Direct call to handleGenerateSurvey
+                }}
                 disabled={loading}
                 className="generate-button"
                 data-testid="generate-survey-btn"
@@ -209,7 +189,7 @@ const Product = () => {
                   setIsAnalyzing,
                   updateAnalysisInFirestore
                 );
-              }} // Direct call to handleAnalyzeFeedback
+              }}
               disabled={isAnalyzing}
               className="analyze-button"
               data-testid="analyze-responses-btn"
@@ -217,10 +197,11 @@ const Product = () => {
               {t("feedbackApp.analyzeResponses")}
             </button>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
 
 export default Product;
+

@@ -9,6 +9,7 @@
   border-radius: 8px 40px; /* Reverted from 1.08% 5.42% */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Reverted from 2.03% */
   border: #28a745 1px solid; /* Reverted from 0.07% */
+  margin-bottom: 20px;
 }
 
 .wrapper {

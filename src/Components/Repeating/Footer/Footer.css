@@ -10,8 +10,8 @@
   left: 0;
   bottom: 0;
   right: 0;
-  padding: 0;
-  transition: margin-left 0.3s ease;
+  padding: 10px 0;
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,17 @@
   display: none;
 }
 
+@media screen and (max-width: 1200px){
+  .footer.shifted{
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .footer{
+    height: 30px;
+  }
+
   .full-text {
     display: none;
   }

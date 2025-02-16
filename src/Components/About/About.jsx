@@ -1,14 +1,11 @@
-import React from "react";
-import "./About.css"; // Ensure this file contains the necessary styles
-import { useTranslation, Trans } from "react-i18next";
+import "./About.css"
+import { useTranslation, Trans } from "react-i18next"
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <div className="about-page">
-      <div className="navbar-container">
-      </div>
       <div className="about-container">
         <main>
           <h1>{t("about.title")}</h1>
@@ -18,15 +15,21 @@ const About = () => {
             <p>{t("about.who_we_are.content")}</p>
           </section>
 
+          <div className="section-divider" />
+
           <section className="about-story">
             <h2>{t("about.our_story.title")}</h2>
             <p>{t("about.our_story.content")}</p>
           </section>
 
+          <div className="section-divider" />
+
           <section className="about-mission">
             <h2>{t("about.mission_and_vision.title")}</h2>
             <p>{t("about.mission_and_vision.content")}</p>
           </section>
+
+          <div className="section-divider" />
 
           <section className="about-values">
             <h2>{t("about.core_values.title")}</h2>
@@ -46,27 +49,29 @@ const About = () => {
             </div>
           </section>
 
+          <div className="section-divider" />
+
           <section className="about-why-us">
             <h2>{t("about.why_choose_us.title")}</h2>
             <p>{t("about.why_choose_us.content")}</p>
           </section>
 
+          <div className="section-divider" />
+
           <section className="about-contact">
             <h2>{t("about.get_in_touch.title")}</h2>
-
             <Trans
               i18nKey="about.get_in_touch.content"
               components={{
-                contactLink: <a href="/contact" className="about-contact-link"/>,
+                contactLink: <a href="/contact" className="about-contact-link" />,
               }}
             />
           </section>
         </main>
       </div>
-      <div className="footer-container">
-      </div>
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About
+
